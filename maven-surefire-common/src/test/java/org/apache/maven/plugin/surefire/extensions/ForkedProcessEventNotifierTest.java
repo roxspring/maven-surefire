@@ -111,7 +111,7 @@ public class ForkedProcessEventNotifierTest
             WritableBufferedByteChannel wChannel = newBufferedChannel( out );
             EventChannelEncoder encoder = new EventChannelEncoder( wChannel );
             Map<String, String> props = ObjectUtils.systemProps();
-            encoder.systemProperties( props );
+            encoder.systemProperties( props, NORMAL_RUN, 1L );
             wChannel.close();
 
             ForkedProcessEventNotifier notifier = new ForkedProcessEventNotifier();
@@ -805,7 +805,7 @@ public class ForkedProcessEventNotifierTest
             final Stream out = Stream.newStream();
             WritableBufferedByteChannel wChannel = newBufferedChannel( out );
             EventChannelEncoder encoder = new EventChannelEncoder( wChannel );
-            encoder.systemProperties( ObjectUtils.systemProps() );
+            encoder.systemProperties( ObjectUtils.systemProps(), NORMAL_RUN, 1L );
             wChannel.close();
 
             ReadableByteChannel channel = newChannel( new ByteArrayInputStream( out.toByteArray() ) );

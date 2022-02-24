@@ -1151,7 +1151,7 @@ public class EventChannelEncoderTest
         EventChannelEncoder encoder = new EventChannelEncoder( channel );
 
         Map<String, String> sysProps = ObjectUtils.systemProps();
-        encoder.systemProperties( sysProps );
+        encoder.systemProperties( sysProps, NORMAL_RUN, 1L );
         channel.close();
 
         for ( Entry<String, String> entry : sysProps.entrySet() )

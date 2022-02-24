@@ -20,6 +20,7 @@ package org.apache.maven.surefire.api.booter;
  */
 
 import org.apache.maven.surefire.api.report.ReportEntry;
+import org.apache.maven.surefire.api.report.RunMode;
 import org.apache.maven.surefire.api.report.StackTraceWriter;
 import org.apache.maven.surefire.api.report.TestOutputReportEntry;
 
@@ -37,7 +38,7 @@ public interface MasterProcessChannelEncoder
 
     void onJvmExit();
 
-    void systemProperties( Map<String, String> sysProps );
+    void systemProperties( Map<String, String> sysProps, RunMode runMode, Long testRunId );
 
     void testSetStarting( ReportEntry reportEntry, boolean trimStackTraces );
 

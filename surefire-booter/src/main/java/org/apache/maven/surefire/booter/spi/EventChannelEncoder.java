@@ -128,7 +128,7 @@ public class EventChannelEncoder extends EventEncoder implements MasterProcessCh
     }
 
     @Override
-    public void systemProperties( Map<String, String> sysProps )
+    public void systemProperties( Map<String, String> sysProps, RunMode rm, Long testRunId )
     {
         CharsetEncoder encoder = newCharsetEncoder();
         ByteBuffer result = null;
