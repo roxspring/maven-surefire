@@ -94,6 +94,18 @@ public class Surefire1787JUnit5IT extends SurefireJUnit4IntegrationTestCase
     }
 
     @Test
+    public void selectJUnit5UsingConfiguredProvider()
+    {
+        unpack( "junit-4-5" )
+            .activateProfile( "select-junit5-using-configured-provider" )
+            .executeTest()
+            .verifyErrorFree( 1 )
+            .verifyTextInLog( "Running pkg.JUnit5Test" )
+            .verifyTextInLog(
+                "Using configured provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider" );
+    }
+
+    @Test
     public void testNgWithJupiterApi()
     {
         unpack( "junit5-testng" )

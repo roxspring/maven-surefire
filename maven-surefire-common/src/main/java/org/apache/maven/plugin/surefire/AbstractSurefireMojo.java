@@ -2413,11 +2413,6 @@ public abstract class AbstractSurefireMojo
 
     private Artifact getJUnit5Artifact()
     {
-        if ( getProjectArtifactMap().get( "org.junit.platform:junit-platform-runner" ) != null )
-        {
-            return null;
-        }
-
         Artifact artifact = getPluginArtifactMap().get( "org.junit.platform:junit-platform-engine" );
         if ( artifact == null )
         {
